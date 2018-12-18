@@ -1,0 +1,54 @@
+div	{
+	/*border: solid;*/
+}
+#header,
+#footer {
+	background-color: #f1f1f1;
+	border: solid;
+
+}
+.col-lg-8{
+	border:solid;
+}
+#container{
+	border:solid;
+}
+.list-group{
+	padding-top:0px;
+	border:solid;
+	width: 110%;
+	/*width:245px;*/
+}
+#top{
+
+}
+
+#main-wrap {
+	background-color: #D9D9D9;
+}
+
+#sidebar {
+	background-color: #d2d2d2;
+}
+
+#content-wrap {
+	background-color: #c5c5c5;
+}
+
+/* sizes */
+#main-wrap > div {
+	min-height: 450px;
+}
+
+#header,
+#footer {
+	min-height: 40px;
+}
+
+#content {
+	
+}
+input{
+    /*border: 0.5px solid gray;
+    border-radius: 5px;*/
+}

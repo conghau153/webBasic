@@ -1,0 +1,137 @@
+body{
+    background-image: url(../images/bg-body.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 1600px 700px;
+} 
+#container{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 700px;
+        position: absolute;
+        left: 50%; 
+        top: 0%;
+        transform: translateX(-50%) translateY(-0%);
+}
+header{
+	background-image: url(../images/bg-header.jpg);
+	background-repeat: no-repeat;
+	width: 700px;
+	height: 140px;
+}
+header h1{
+	margin-top: 30px;
+    margin-left: 30px;
+}
+header h1 a{
+	text-decoration: none;
+    color: #A4A4A4;
+}
+nav{
+	background-image: url(../images/bg-menu.png);
+	width: 700px;
+    height: 35px;
+}
+nav ul{
+	list-style:none;
+	padding-left: 30px;
+	margin: 0px;
+	margin-top: 5px;
+}
+nav li{
+	width: 12%;
+	float: left;
+}
+nav li a{
+	font-size: 14px;
+	text-decoration: none;
+	color: white;
+}
+nav li a:hover{
+	color: red;
+}
+#content{
+    width: 69%;
+    margin-bottom: 50px;
+}
+#content h1{
+	color: #CCCC33;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+#content #timepost{
+	margin-left: 5px;
+    color: #A4A4A4;
+}
+#content p{
+	margin-left: 10px;
+}
+#sidebar{
+    width: 31%;
+}
+#feed{
+    justify-content: center;
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    flex-wrap: wrap;
+    background-color: #E6E6E6;
+    border-radius: 0px 0px 20px 20px;
+}
+#bg-feed{
+	background-image: url(../images/bg-feed.gif);
+    width: 150px;
+    height: 35px;
+    display: flex;
+    background-repeat: no-repeat;
+    justify-content: center;
+}
+#comment img{
+	margin-top: 3px;
+}
+#comment{
+	display: flex;
+	margin-left: 5px;
+}
+#comment a{
+	text-decoration: none;
+	margin-left: 5px;
+}
+button{
+	background-image: url(../images/button-feed.png);
+	width: 100px;
+	height: 25px;
+	border: 0;
+}
+button:hover{
+	background-position: 0px 25px;
+}
+#sidebar ul{
+    width: 100%;
+    list-style: none;
+    padding-left: 0px;
+    margin: 5px 0px 20px 0px;
+}
+#sidebar ul li{
+    border-bottom: 1px solid #D8D8D8;
+    padding-left: 15px;
+}
+#sidebar ul li a{
+	color: #333;
+	text-decoration: none;
+}
+#sidebar ul li a:hover{
+	color: red;
+}
+footer{
+	background-image: url(../images/bg-footer.jpg);
+    background-repeat: no-repeat;
+    width: 700px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: 20px;;
+}
