@@ -1,0 +1,134 @@
+UI
+-----------------------------------------------------------------
+D:\ov_new\omnivista\ngnms\src\appserver\ovfrontend\src\main\webapp
+D:\ov_new\omnivista\ngnms\src\setup\ng_shared\locales
+-----------------------------------------------------------------------------------------
+
+-Install the http-server command line executable you would do:
+	npm install --global http-server
+-Then you can run the http-server tool directly, such as:
+	http-server ./app
+	
+
+================================================================================
+-install gulp:     npm install -g gulp
+	
+SET UP BUILD A APP ANGULARJS 1
+------------------------------------------------------
+mkdir helloworld
+cd helloworld	
+npm init
+npm install --save angular
+npm install --save angular-route
+npm install --save-dev gulp
+npm install --save-dev gulp-concat
+npm install --save-dev browser-sync
+
+create folder 
+- src/css
+- src/js
+- src/templates
+create file 
+- styles.json :
+	[
+	  "./src/css/**/*.css"
+	]
+
+- scripts.json :
+	[
+	  "./node_modules/angular/angular.js",
+	  "./node_modules/angular-route/angular-route.js",
+	  "./src/js/**/*.js"
+	]
+	
+-gulpfile.js :
+		const  gulp = require('gulp');
+		const concat = require('gulp-concat');
+		const browserSync = require('browser-sync').create();
+
+		const scripts = require('./scripts');
+		const styles = require('./styles');
+
+
+		var devMode = false;
+
+
+		gulp.task('css',function () {
+			gulp.src(styles)
+				.pipe(concat('main.css'))
+				.pipe(gulp.dest('./dist/css'))
+				.pipe(browserSync.reload({
+					stream: true
+				}));
+		});
+
+		gulp.task('js',function () {
+			gulp.src(scripts)
+				.pipe(concat('scripts.js'))
+				.pipe(gulp.dest('./dist/js'))
+				.pipe(browserSync.reload({
+					stream: true
+				}));
+		});
+
+		gulp.task('html',function () {
+			gulp.src('./src/template/**/*.html')
+				.pipe(gulp.dest('./dist/'))
+				.pipe(browserSync.reload({
+					stream: true
+				}))
+		});
+
+		gulp.task('build', function(){
+			gulp.start(['css','js','html']);
+		});
+
+		gulp.task('browser-sync',function ({}) {
+			browserSync.init(null,{
+				open: false,
+				server: {
+					baseDir : 'dist'
+				}
+			});
+		});
+
+		gulp.task('start',function () {
+		   devMode = true;
+		   gulp.start(['build','browser-sync']);
+		   gulp.watch(['./src/css/**/*.css'],['css']);
+		   gulp.watch(['./src/js/**/*.js'],['js']);
+		   gulp.watch(['./src/templates/**/*.html'],['html']);
+		});
+
+gulp dev
+********npm install --save-dev gulp@3.9.1******
+gulp start
+
+-js/app.js :
+	angular.module('helloWorldApp', [
+		'ngRoute'
+	])
+		.config([
+			'$routeProvider',
+			function($routeProvider) {
+				$routeProvider
+					.when('/', {
+						templateUrl: 'views/home.html',
+						controller: 'HomeCtrl'
+					});
+			}
+		]);
+-js/controllers/HomeCtrl.js
+	angular.module('helloWorldApp')
+		.controller('HomeCtrl', [
+			'$scope',
+			function($scope) {
+				console.log('Loaded.');
+				$scope.message = 'Hello World Test';
+			}
+		]);
+
+		
+gulp build
+gulp start
+http://localhost:3000
